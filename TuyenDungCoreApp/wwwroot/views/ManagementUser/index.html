@@ -144,6 +144,9 @@
                                                     <button class="dropdown-item" ng-click="addpermission({ id: item.Id, title: item.UserName })" ng-if="hasPermission('View')">
                                                         Phân quyền
                                                     </button>
+                                                    <button class="dropdown-item" ng-click="resetpassword({ id: item.Id, title: item.UserName })" ng-if="hasPermission('View')">
+                                                        Reset Password
+                                                    </button>
                                                 </div>
                                             </div>
                                         </td>

@@ -65,6 +65,9 @@ app.factory('dataservice', function ($http, CTX_FOLDER) {
         get_item_permission: function (data, callback) {
             callApi('POST', '/ManagementUser/getItemPermission', JSON.stringify(data), callback);
         },
+        reset_password: function (data, callback) {
+            callApi('POST', '/ManagementUser/ResetPassword', JSON.stringify(data), callback);
+        },
     };
 });
 app.run(function ($rootScope, dataservice, $q) {
@@ -476,6 +479,48 @@ app.controller('index', function ($scope, $rootScope, $uibModal, dataservice, CT
             }
         );
 
+    };
+    $scope.resetpassword = function (temp) {
+        const { id, title } = temp;
+
+        swal({
+            title: "Bạn có chắc chắn?",
+            text: `Bạn có chắc chắn muốn đặt lại mật khẩu tài khoản "${title}" ?`,
+            icon: "warning",
+            buttons: {
+                cancel: {
+                    text: "Hủy",
+                    value: false,
+                    visible: true,
+                    className: "",
+                    closeModal: true,
+                },
+                confirm: {
+                    text: "Đặt lại mật khẩu",
+                    value: true,
+                    visible: true,
+                    className: "btn-danger",
+                    closeModal: true,
+                },
+            },
+            dangerMode: true,
+        }).then((confirmDelete) => {
+            if (confirmDelete) {
+                var requestData = {
+                    Id: id,
+                };
+                dataservice.reset_password(requestData, function (result) {
+                    if (!result.Error) {
+                        showAlert('success', "Đặt lại mật khẩu thành công!");
+                        $rootScope.ReloadData();
+                    } else {
+                        showAlert('danger', result.Title);
+                    }
+                });
+            } else {
+                console.log("Hủy hành động xóa");
+            }
+        });
     };
 });
 // Controller điều khiển

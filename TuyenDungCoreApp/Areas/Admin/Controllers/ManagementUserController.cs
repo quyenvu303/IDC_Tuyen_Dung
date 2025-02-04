@@ -592,5 +592,32 @@ namespace GearMarketBackend.Areas.Admin.Controllers
                 return Json(new { Title = "Đã xảy ra lỗi: " + ex.Message, Error = true });
             }
         }
+
+        [DynamicAuthorize(RequiredPermission = EAction.View)]
+        [HttpPost("/ManagementUser/ResetPassword")]
+        public object ResetPassword([FromBody] DataCustom request)
+        {
+
+            try
+            {
+                var record = _context.ManagementUser.FirstOrDefault(x => x.Id == request.Id);
+                if (record != null)
+                {
+                    record.Password = HashPassword("1234@");
+                    _context.SaveChanges();
+                    return Json(new { Title = "Đặt lại thành công", Error = false });
+                }
+                else
+                {
+                    return Json(new { Title = "Đặt lại không thành công: ", Error = true });
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Logger.LogError(ex);
+                return Json(new { Title = "Đã xảy ra lỗi: " + ex.Message, Error = true });
+            }
+        }
     }
 }
