@@ -162,12 +162,12 @@ namespace TuyenDungCoreApp
                         {
                             user_no = "admin",
                             UserName = "admin",
-                            Password = HashPassword("1234"), // Mã hóa mật khẩu
+                            Password = HashPassword("1234@"), // Mã hóa mật khẩu
                             FullName = "Administrator",
                             DepartmentName = "Administrator", // Cập nhật theo giá trị của bạn
                             JobTitleName = "Administrator",  // Cập nhật theo giá trị của bạn
                             Email = "admin@example.com",
-                            Phone = "1234",
+                            Phone = "123456789",
                             Role = "Administrator",
                             Avatar = "/assets/img/avatars/user_default.png",
                             IsActive = 1,
