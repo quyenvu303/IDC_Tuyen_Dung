@@ -1,0 +1,2 @@
+//Render Entity
+dotnet ef dbcontext scaffold "Server=DINHQUYEN\SQLEXPRESS;Database=TuyenDungIDC;User Id=sa;Password=1234@;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -o DataTable_2025_01_04 -p TuyenDungModel -s TuyenDungCoreApp --context-dir Models_2025_01_04 --context AdminDbContext

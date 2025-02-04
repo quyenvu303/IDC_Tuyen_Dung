@@ -1,0 +1,17 @@
+{
+	"sProcessing":   "<img src='/lib/assets/global/plugins/angularjs-datatable/loading.gif'/>",
+	"sLengthMenu":   "_MENU_",
+	"sZeroRecords":  "Không có dữ liệu",
+	"sInfo":         "Đang xem _START_ đến _END_ trong  _TOTAL_ mục",
+	"sInfoEmpty":    "0 mục",
+	"sInfoFiltered": "(được lọc từ _MAX_ mục)",
+	"sInfoPostFix":  "",
+	"sSearch":       "Tìm nhanh:",
+	"sUrl":          "",
+	"oPaginate": {
+		"sFirst":    "<i class='fa fa-angle-double-left'></i>",
+		"sPrevious": "<i class='fa fa-angle-left'></i>",
+		"sNext":     "<i class='fa fa-angle-right'></i>",
+		"sLast":     "<i class='fa fa-angle-double-right'></i>"
+	}
+}

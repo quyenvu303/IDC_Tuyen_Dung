@@ -1,0 +1,60 @@
+﻿<div class="container-xxl flex-grow-1 container-p-y">
+    <button class="btn btn-primary" ng-click="addModal()">Mở Modal</button>
+    <div class="card">
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Stt</th>
+                        <th>Avatar</th>
+                        <th>UserName</th>
+                        <th>FullName</th>
+                        <th>DepartmentName</th>
+                        <th>JobTitleName</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Role</th>
+                        <th>IsActive</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    <tr ng-repeat="item in List_ManagementUser">
+                        <td>{{ $index + 1 }}</td>
+                        <td>
+                            <img ng-src="{{item.Avatar}}" alt="Avatar" class="img-thumbnail" style="width: 50px; height: 50px;">
+                        </td>
+                        <td>{{ item.UserName }}</td>
+                        <td>{{ item.FullName }}</td>
+                        <td>{{ item.DepartmentName }}</td>
+                        <td>{{ item.JobTitleName }}</td>
+                        <td>{{ item.Email }}</td>
+                        <td>{{ item.Phone }}</td>
+                        <td>{{ item.Role }}</td>
+                        <td>{{ item.IsActive == 1 ? "Kích hoạt" : "Không kích hoạt" }}</td>
+                        <td>{{ item.Status == 1 ? "Hoạt động" : "Không hoạt động" }}</td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="javascript:void(0);" ng-click="editModal(item.Id)"><i class="bx bx-edit-alt me-2"></i> Edit</a>
+                                    <a class="dropdown-item" href="javascript:void(0);" ng-click="delete({ id: item.Id, title: item.UserName })"><i class="bx bx-trash me-2"></i> Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: 20px;">
+                <button ng-click="previousPage()" ng-disabled="pageIndex === 1">Previous</button>
+                <span>Page {{ pageIndex }} of {{ totalPages }}</span>
+                <button ng-click="nextPage()" ng-disabled="pageIndex === totalPages">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

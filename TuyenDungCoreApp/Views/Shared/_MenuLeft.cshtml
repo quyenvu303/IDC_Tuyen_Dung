@@ -1,0 +1,132 @@
+﻿@using TuyenDungModel.Custom
+@{
+    var menuTree = ViewData["MenuTree"] as List<MenuItem>;
+}
+
+<style>
+    a {
+        pointer-events: auto; /* Đảm bảo có thể click */
+    }
+
+</style>
+
+
+
+<div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+    <!-- scrollbar removed-->
+    <div class="navbar-vertical-content">
+        <ul class="navbar-nav flex-column" id="navbarVerticalNav">
+            @{
+                int parentId = 1;
+            }
+            @foreach (var item in menuTree)
+            {
+                <li class="nav-item">
+                    <div class="nav-item-wrapper">
+                        @if (!item.Children.Any() && !string.IsNullOrEmpty(item.Action) && !string.IsNullOrEmpty(item.Controller))
+                        {
+                            <a class="nav-link" href="@Url.Action(item.Action, item.Controller, new { area = item.Areas })" target="_self">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon">
+                                        <span data-feather="@item.icon"></span>
+                                    </span>
+                                    <span class="nav-link-text">@item.Menu_name</span>
+                                </div>
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="nav-link dropdown-indicator label-1 collapsed" href="#parent-@parentId" role="button" data-bs-toggle="collapse"
+                               aria-expanded="true" aria-controls="parent-@parentId">
+                                <div class="d-flex align-items-center">
+                                    <div class="dropdown-indicator-icon-wrapper">
+                                        <span class="fas fa-caret-right dropdown-indicator-icon"></span>
+                                    </div>
+                                    <span class="nav-link-icon">
+                                        <span data-feather="@item.icon"></span>
+                                    </span>
+                                    <span class="nav-link-text">@item.Menu_name</span>
+                                </div>
+                            </a>
+                            <div class="parent-wrapper label-1">
+                                <ul class="nav collapse parent show" id="parent-@parentId">
+                                    @{
+                                        int childId = 1;
+                                        parentId++;
+                                    }
+                                    @foreach (var child in item.Children)
+                                    {
+                                        <li class="nav-item">
+                                            @if (!child.Children.Any() && !string.IsNullOrEmpty(child.Action) && !string.IsNullOrEmpty(child.Controller))
+                                            {
+                                                <a class="nav-link" href="@Url.Action(child.Action, child.Controller, new { area = child.Areas })" target="_self">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="nav-link-icon">
+                                                            <span data-feather="@child.icon"></span>
+                                                        </span>
+                                                        <span class="nav-link-text">@child.Menu_name</span>
+                                                    </div>
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a class="nav-link dropdown-indicator label-1 collapsed" href="#child-@parentId-@childId" role="button" data-bs-toggle="collapse"
+                                                   aria-expanded="true" aria-controls="child-@parentId-@childId">
+                                                    <div class="d-flex align-items-center">
+                                                       @*  <div class="dropdown-indicator-icon-wrapper">
+                                                            <span class="fas fa-caret-right dropdown-indicator-icon"></span>
+                                                        </div> *@
+                                                        <span class="nav-link-icon">
+                                                            <span data-feather="@child.icon"></span>
+                                                        </span>
+                                                        <span class="nav-link-text">@child.Menu_name</span>
+                                                    </div>
+                                                </a>
+                                                <div class="parent-wrapper label-1">
+                                                    <ul class="nav collapse parent show" id="child-@parentId-@childId">
+                                                        @{
+                                                            int grandChildId = 1;
+                                                            childId++;
+                                                        }
+                                                        @foreach (var grandChild in child.Children)
+                                                        {
+                                                            <li class="nav-item">
+                                                                @if (!grandChild.Children.Any() && !string.IsNullOrEmpty(grandChild.Action) && !string.IsNullOrEmpty(grandChild.Controller))
+                                                                {
+                                                                    <a class="nav-link" href="@Url.Action(grandChild.Action, grandChild.Controller, new { area = grandChild.Areas })" target="_self">
+                                                                        <div class="d-flex align-items-center">
+                                                                            <span class="nav-link-icon">
+                                                                                <span data-feather="@grandChild.icon"></span>
+                                                                            </span>
+                                                                            <span class="nav-link-text">@grandChild.Menu_name</span>
+                                                                        </div>
+                                                                    </a>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <a class="nav-link" href="#">
+                                                                        <div class="d-flex align-items-center">
+                                                                            <span class="nav-link-icon">
+                                                                                <span data-feather="@grandChild.icon"></span>
+                                                                            </span>
+                                                                            <span class="nav-link-text">@grandChild.Menu_name</span>
+                                                                        </div>
+                                                                    </a>
+                                                                }
+                                                            </li>
+                                                            { grandChildId++; }
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            }
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

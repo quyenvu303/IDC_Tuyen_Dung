@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://rawgit.com/kineticsocial/angularjs-datetime-picker/master/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+  <link rel="stylesheet" href="./index_files/angularjs-datetime-picker.css">
+  <script src="./index_files/angular.js"></script>
+  <script src="./index_files/angularjs-datetime-picker.js"></script>
+  <script>
+    angular.module('myApp',['angularjs-datetime-picker']);
+    angular.module('myApp').run(function($rootScope) {
+      $rootScope.gmtDate = new Date('2015-01-01 00:00:00 -00:00');
+    });
+  </script>
+</head>
+<body ng-app="myApp" ng-init="
+  date1=&#39;01-01-2015 00:00:00&#39;;
+  date2=&#39;Thu Jan 01 2015 00:00:00 GMT-0500 (EST)&#39;;
+  date3=&#39;2015-01-01T00:00:00-0400&#39;;
+  date4=&#39;2015-01-01&#39;;" class="ng-binding ng-scope">
+  <h1>Datetime Picker</h1>
+
+  &lt;input ng-model="date4" datetime-picker date-only /&gt; <br>
+  <input ng-model="date1" datetime-picker="" date-only="" size="30" class="ng-pristine ng-valid ng-valid-date ng-touched"> <br> <br>
+
+  &lt;input ng-model="date2" datetime-picker date-format="yyyy-MM-dd" date-only /&gt; <br>
+  <input ng-model="date2" datetime-picker="" date-format="yyyy-MM-dd" size="30" date-only="" class="ng-pristine ng-valid ng-valid-date ng-touched"> <br> <br> <br>
+
+  &lt;input ng-model="date3" datetime-picker date-format="yyyy-MM-dd HH:mm:ss" close-on-select="false" /&gt; <br>
+  <input ng-model="date3" datetime-picker="" date-format="yyyy-MM-dd HH:mm:ss" close-on-select="false" size="30" class="ng-pristine ng-valid ng-valid-date ng-touched"> <br> <br>
+
+  &lt;input ng-model="date4" datetime-picker hour="23" minute='59'/&gt;<br>
+  <input ng-model="date4" datetime-picker="" hour="23" minute="59" size="30" class="ng-pristine ng-valid ng-valid-date ng-touched"> <br> <br>
+
+  gmtDate : "2016-09-15T01:31:00.000Z"<br>
+  &lt;input type="date" ng-model="gmtDate" size="30" /&gt;<br>
+  <input type="date" ng-model="gmtDate" datetime-picker="" date-format="yyyy-MM-dd HH:mm:ss" size="30" class="ng-valid ng-valid-date ng-touched ng-dirty">
+
+  <div style="position:fixed; bottom:0">
+    &lt;input ng-model="date5" datetime-picker date-format="yyyy-MM-dd HH:mm:ss" year="2014" month="12" day="31" hour="23" minute="59" /&gt;<br>
+    <input ng-model="date5" datetime-picker="" date-format="yyyy-MM-dd HH:mm:ss" size="30" year="2014" month="12" day="31" hour="23" minute="59" class="ng-pristine ng-untouched ng-valid"> <br> <br>
+  </div>
+
+
+
+</body></html>

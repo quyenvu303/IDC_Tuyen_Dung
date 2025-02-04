@@ -1,0 +1,40 @@
+
+.page-sidebar-min {
+    width: 40px !important;
+}
+
+    .page-sidebar-min h3 {
+        display: none;
+    }
+
+    .page-sidebar-min .navbar span {
+        display: none;
+    }
+
+    .page-sidebar-min .navbar label {
+        position: absolute;
+        top: -1px;
+        right: -2px;
+    }
+
+    .page-sidebar-min ul li a {
+        padding: 10px 10px !important;
+    }
+
+.page-content-col {
+    padding-left: 10px !important;
+}
+
+.collapse-menu-left a:hover i {
+    color: #6c7b88 !important;
+}
+.page-content {
+    padding-top: 0px !important;
+}
+.navbar-min h3{margin:0 0 10px !important;}
+.navbar-min ul {
+    margin: 0 0 10px 0 !important
+}
+.page-content-row .page-sidebar .navbar-nav > li > a{padding:10px !important; font-size:13px;}
+.page-content-container{margin-top:0px;}
+.page-content-row{margin-top:10px;}

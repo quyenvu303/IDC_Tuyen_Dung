@@ -1,0 +1,55 @@
+[2025-01-08 00:23:37] [Error] - The required column 'Status' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.EnumerablePartition`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at TuyenDungCoreApp.Controllers.BaseController.Get_Info_User_Login(AdminDbContext _context) in D:\TuyenDungIDC\TuyenDungCoreApp\Controllers\BaseController.cs:line 65
+[2025-01-08 00:23:38] [Error] - Unable to cast object of type '<>f__AnonymousType8`4[System.Boolean,System.String,System.String,System.DateTime]' to type 'TuyenDungModel.Custom.EmployeesViewLogin'.
+   at TuyenDungCoreApp.Controllers.BaseController.Get_Info_User_Login(AdminDbContext _context) in D:\TuyenDungIDC\TuyenDungCoreApp\Controllers\BaseController.cs:line 70
+   at TuyenDungCoreApp.Areas.Admin.Controllers.ManagementUserController.JTable(Data jTablePara) in D:\TuyenDungIDC\TuyenDungCoreApp\Areas\Admin\Controllers\ManagementUserController.cs:line 53
+[2025-01-08 00:24:38] [Error] - The required column 'Status' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.EnumerablePartition`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at TuyenDungCoreApp.Controllers.BaseController.Get_Info_User_Login(AdminDbContext _context) in D:\TuyenDungIDC\TuyenDungCoreApp\Controllers\BaseController.cs:line 65
+[2025-01-08 00:24:38] [Error] - Unable to cast object of type '<>f__AnonymousType8`4[System.Boolean,System.String,System.String,System.DateTime]' to type 'TuyenDungModel.Custom.EmployeesViewLogin'.
+   at TuyenDungCoreApp.Controllers.BaseController.Get_Info_User_Login(AdminDbContext _context) in D:\TuyenDungIDC\TuyenDungCoreApp\Controllers\BaseController.cs:line 70
+   at TuyenDungCoreApp.Areas.Admin.Controllers.ManagementUserController.JTable(Data jTablePara) in D:\TuyenDungIDC\TuyenDungCoreApp\Areas\Admin\Controllers\ManagementUserController.cs:line 53
+[2025-01-08 00:24:38] [Error] - The required column 'Status' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.EnumerablePartition`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at TuyenDungCoreApp.Controllers.BaseController.Get_Info_User_Login(AdminDbContext _context) in D:\TuyenDungIDC\TuyenDungCoreApp\Controllers\BaseController.cs:line 65
+[2025-01-08 00:24:38] [Error] - Unable to cast object of type '<>f__AnonymousType8`4[System.Boolean,System.String,System.String,System.DateTime]' to type 'TuyenDungModel.Custom.EmployeesViewLogin'.
+   at TuyenDungCoreApp.Controllers.BaseController.Get_Info_User_Login(AdminDbContext _context) in D:\TuyenDungIDC\TuyenDungCoreApp\Controllers\BaseController.cs:line 70
+   at TuyenDungCoreApp.Areas.Admin.Controllers.ManagementUserController.JTable(Data jTablePara) in D:\TuyenDungIDC\TuyenDungCoreApp\Areas\Admin\Controllers\ManagementUserController.cs:line 53
+[2025-01-08 00:24:38] [Error] - The required column 'Status' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.EnumerablePartition`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at TuyenDungCoreApp.Controllers.BaseController.Get_Info_User_Login(AdminDbContext _context) in D:\TuyenDungIDC\TuyenDungCoreApp\Controllers\BaseController.cs:line 65
+[2025-01-08 00:24:38] [Error] - Unable to cast object of type '<>f__AnonymousType8`4[System.Boolean,System.String,System.String,System.DateTime]' to type 'TuyenDungModel.Custom.EmployeesViewLogin'.
+   at TuyenDungCoreApp.Controllers.BaseController.Get_Info_User_Login(AdminDbContext _context) in D:\TuyenDungIDC\TuyenDungCoreApp\Controllers\BaseController.cs:line 70
+   at TuyenDungCoreApp.Areas.Admin.Controllers.ManagementUserController.JTable(Data jTablePara) in D:\TuyenDungIDC\TuyenDungCoreApp\Areas\Admin\Controllers\ManagementUserController.cs:line 53
+[2025-01-08 00:24:42] [Error] - The required column 'Status' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.EnumerablePartition`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at TuyenDungCoreApp.Controllers.BaseController.Get_Info_User_Login(AdminDbContext _context) in D:\TuyenDungIDC\TuyenDungCoreApp\Controllers\BaseController.cs:line 65
+[2025-01-08 00:24:42] [Error] - Unable to cast object of type '<>f__AnonymousType8`4[System.Boolean,System.String,System.String,System.DateTime]' to type 'TuyenDungModel.Custom.EmployeesViewLogin'.
+   at TuyenDungCoreApp.Controllers.BaseController.Get_Info_User_Login(AdminDbContext _context) in D:\TuyenDungIDC\TuyenDungCoreApp\Controllers\BaseController.cs:line 70
+   at TuyenDungCoreApp.Areas.Admin.Controllers.ManagementUserController.JTable(Data jTablePara) in D:\TuyenDungIDC\TuyenDungCoreApp\Areas\Admin\Controllers\ManagementUserController.cs:line 53

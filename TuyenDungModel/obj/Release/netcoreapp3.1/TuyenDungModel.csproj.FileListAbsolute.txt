@@ -1,0 +1,10 @@
+D:\TuyenDungIDC\TuyenDungModel\bin\Release\netcoreapp3.1\TuyenDungModel.deps.json
+D:\TuyenDungIDC\TuyenDungModel\bin\Release\netcoreapp3.1\TuyenDungModel.dll
+D:\TuyenDungIDC\TuyenDungModel\bin\Release\netcoreapp3.1\TuyenDungModel.pdb
+D:\TuyenDungIDC\TuyenDungModel\obj\Release\netcoreapp3.1\TuyenDungModel.csproj.AssemblyReference.cache
+D:\TuyenDungIDC\TuyenDungModel\obj\Release\netcoreapp3.1\TuyenDungModel.GeneratedMSBuildEditorConfig.editorconfig
+D:\TuyenDungIDC\TuyenDungModel\obj\Release\netcoreapp3.1\TuyenDungModel.AssemblyInfoInputs.cache
+D:\TuyenDungIDC\TuyenDungModel\obj\Release\netcoreapp3.1\TuyenDungModel.AssemblyInfo.cs
+D:\TuyenDungIDC\TuyenDungModel\obj\Release\netcoreapp3.1\TuyenDungModel.csproj.CoreCompileInputs.cache
+D:\TuyenDungIDC\TuyenDungModel\obj\Release\netcoreapp3.1\TuyenDungModel.dll
+D:\TuyenDungIDC\TuyenDungModel\obj\Release\netcoreapp3.1\TuyenDungModel.pdb

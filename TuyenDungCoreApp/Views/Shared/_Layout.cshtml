@@ -1,0 +1,480 @@
+﻿@{
+    var urlStatic = WebContext.UrlStatic;
+}
+
+
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" data-navigation-type="default" data-navbar-horizontal-shape="default">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <base href="/" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Phoenix</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="@urlStatic/assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="@urlStatic/assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="@urlStatic/assets/vendors/simplebar/simplebar.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+    <script src="@urlStatic/assets/js/angular.min.js"></script>
+    <script src="@urlStatic/assets/js/angular-route.min.js"></script>
+    <script src="@urlStatic/assets/js/angular-messages.min.js"></script>
+    <script src="@urlStatic/assets/js/ui-bootstrap-tpls.min.js"></script>
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+    <link href="@urlStatic/assets/vendors/simplebar/simplebar.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="@urlStatic/assets/css/line.css">
+    <link href="@urlStatic/assets/css/theme-rtl.min.css" type="text/css" rel="stylesheet" id="style-rtl">
+    <link href="@urlStatic/assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
+    <link href="@urlStatic/assets/css/user-rtl.min.css" type="text/css" rel="stylesheet" id="user-style-rtl">
+    <link href="@urlStatic/assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+    <script src="@urlStatic/assets/js/config.js"></script>
+
+    <script>
+        var phoenixIsRTL = window.config.config.phoenixIsRTL;
+        if (phoenixIsRTL) {
+          var linkDefault = document.getElementById('style-default');
+          var userLinkDefault = document.getElementById('user-style-default');
+          linkDefault.setAttribute('disabled', true);
+          userLinkDefault.setAttribute('disabled', true);
+          document.querySelector('html').setAttribute('dir', 'rtl');
+        } else {
+          var linkRTL = document.getElementById('style-rtl');
+          var userLinkRTL = document.getElementById('user-style-rtl');
+          linkRTL.setAttribute('disabled', true);
+          userLinkRTL.setAttribute('disabled', true);
+        }
+        
+    </script>
+
+    <link href="@urlStatic/assets/vendors/leaflet/leaflet.css" rel="stylesheet">
+    <link href="@urlStatic/assets/vendors/leaflet.markercluster/MarkerCluster.css" rel="stylesheet">
+    <link href="@urlStatic/assets/vendors/leaflet.markercluster/MarkerCluster.Default.css" rel="stylesheet">
+    <script src="@urlStatic/assets/jstree/tree.min.js"></script>
+
+    @* jexcel *@
+    <link rel="stylesheet" href="@urlStatic/assets/jexcel/jspreadsheet.css" type="text/css" />
+    <link rel="stylesheet" href="@urlStatic/assets/jexcel/jsuites.css" rel="stylesheet">
+    <script src="@urlStatic/assets/jexcel/jsuites.js"></script>
+    <script src="@urlStatic/assets/jexcel/jspreadsheet.js"></script>
+    @* Js tree table *@
+    <link rel="stylesheet" href="@urlStatic/assets/js_treetable/css/jquery.treegrid.css" rel="stylesheet">
+    <script src="@urlStatic/assets/js_treetable/js/jquery.treegrid.min.js"></script>
+
+
+
+    <style>
+        #alert-container {
+            position: fixed;
+            top: 70px;
+            right: 10px;
+            z-index: 9999; /* Giá trị cao hơn modal Bootstrap */
+            width: 300px;
+            pointer-events: auto; /* Để có thể click vào alert */
+        }
+
+        .alert {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+        }
+        .btn-close{
+            top:-10% !important
+        }
+
+        /* Overlay styles */
+      /*   main {
+            position: relative;
+        } */
+
+        /* Overlay styles */
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            display: none; /* Ẩn mặc định */
+        }
+
+            .loading-overlay.active {
+                display: flex; /* Hiển thị khi có lớp "active" */
+            }
+
+        .loading-bar-container {
+            width: 50%; /* Giảm chiều rộng */
+            max-width: 300px; /* Giới hạn tối đa */
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .loading-bar {
+            width: 0%;
+            height: 10px; /* Giảm chiều cao */
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .loading-text {
+            margin-top: 10px;
+            color: #fff;
+            font-size: 16px; /* Giảm kích thước chữ */
+            font-family: Arial, sans-serif;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <main class="main" id="top">
+       <div id="alert-container" style="position: fixed; top: 10px; right: 10px; z-index: 1050;"></div>
+       <div id="alert-container" style="position: fixed; top: 10px; right: 10px; z-index: 1050;"></div>
+                    
+
+        <nav class="navbar navbar-vertical navbar-expand-lg" style="display:block;">
+            @Html.Partial("~/Views/Shared/_MenuLeft.cshtml")
+        </nav>
+        <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarDefault" style="display:block;">
+            @Html.Partial("~/Views/Shared/_MenuTop.cshtml")
+        </nav>
+
+        <script type="text/javascript">
+
+            var navbarTopShape = window.config.config.phoenixNavbarTopShape;
+            var navbarPosition = window.config.config.phoenixNavbarPosition;
+            var body = document.querySelector('body');
+            var navbarDefault = document.querySelector('#navbarDefault');
+            var navbarTop = document.querySelector('#navbarTop');
+            var topNavSlim = document.querySelector('#topNavSlim');
+            var navbarTopSlim = document.querySelector('#navbarTopSlim');
+            var navbarCombo = document.querySelector('#navbarCombo');
+            var navbarComboSlim = document.querySelector('#navbarComboSlim');
+            var dualNav = document.querySelector('#dualNav');
+
+            var documentElement = document.documentElement;
+            var navbarVertical = document.querySelector('.navbar-vertical');
+
+            if (navbarPosition === 'dual-nav') {
+              topNavSlim?.remove();
+              navbarTop?.remove();
+              navbarTopSlim?.remove();
+              navbarCombo?.remove();
+              navbarComboSlim?.remove();
+              navbarDefault?.remove();
+              navbarVertical?.remove();
+              dualNav.removeAttribute('style');
+              document.documentElement.setAttribute('data-navigation-type', 'dual');
+
+            } else if (navbarTopShape === 'slim' && navbarPosition === 'vertical') {
+              navbarDefault?.remove();
+              navbarTop?.remove();
+              navbarTopSlim?.remove();
+              navbarCombo?.remove();
+              navbarComboSlim?.remove();
+              topNavSlim.style.display = 'block';
+              navbarVertical.style.display = 'inline-block';
+              document.documentElement.setAttribute('data-navbar-horizontal-shape', 'slim');
+
+            } else if (navbarTopShape === 'slim' && navbarPosition === 'horizontal') {
+              navbarDefault?.remove();
+              navbarVertical?.remove();
+              navbarTop?.remove();
+              topNavSlim?.remove();
+              navbarCombo?.remove();
+              navbarComboSlim?.remove();
+              dualNav?.remove();
+              navbarTopSlim.removeAttribute('style');
+              document.documentElement.setAttribute('data-navbar-horizontal-shape', 'slim');
+            } else if (navbarTopShape === 'slim' && navbarPosition === 'combo') {
+              navbarDefault?.remove();
+              navbarTop?.remove();
+              topNavSlim?.remove();
+              navbarCombo?.remove();
+              navbarTopSlim?.remove();
+              dualNav?.remove();
+              navbarComboSlim.removeAttribute('style');
+              navbarVertical.removeAttribute('style');
+              document.documentElement.setAttribute('data-navbar-horizontal-shape', 'slim');
+            } else if (navbarTopShape === 'default' && navbarPosition === 'horizontal') {
+              navbarDefault?.remove();
+              topNavSlim?.remove();
+              navbarVertical?.remove();
+              navbarTopSlim?.remove();
+              navbarCombo?.remove();
+              navbarComboSlim?.remove();
+              dualNav?.remove();
+              navbarTop.removeAttribute('style');
+              document.documentElement.setAttribute('data-navigation-type', 'horizontal');
+            } else if (navbarTopShape === 'default' && navbarPosition === 'combo') {
+              topNavSlim?.remove();
+              navbarTop?.remove();
+              navbarTopSlim?.remove();
+              navbarDefault?.remove();
+              navbarComboSlim?.remove();
+              dualNav?.remove();
+              navbarCombo.removeAttribute('style');
+              navbarVertical.removeAttribute('style');
+              document.documentElement.setAttribute('data-navigation-type', 'combo');
+            } else {
+              topNavSlim?.remove();
+              navbarTop?.remove();
+              navbarTopSlim?.remove();
+              navbarCombo?.remove();
+              navbarComboSlim?.remove();
+              dualNav?.remove();
+              navbarDefault.removeAttribute('style');
+              navbarVertical.removeAttribute('style');
+            }
+
+            var navbarTopStyle = window.config.config.phoenixNavbarTopStyle;
+            var navbarTop = document.querySelector('.navbar-top');
+            if (navbarTopStyle === 'darker') {
+              navbarTop.setAttribute('data-navbar-appearance', 'darker');
+            }
+
+            var navbarVerticalStyle = window.config.config.phoenixNavbarVerticalStyle;
+            var navbarVertical = document.querySelector('.navbar-vertical');
+            if (navbarVerticalStyle === 'darker') {
+              navbarVertical.setAttribute('data-navbar-appearance', 'darker');
+            }
+        </script>
+
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loadingBar"></div>
+            </div>
+            <div class="loading-text" id="loadingText">Đang xử lý... 0%</div>
+        </div>
+        @RenderBody()
+    </main>
+
+    <script src="@urlStatic/assets/vendors/popper/popper.min.js"></script>
+    <script src="@urlStatic/assets/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="@urlStatic/assets/vendors/anchorjs/anchor.min.js"></script>
+    <script src="@urlStatic/assets/vendors/is/is.min.js"></script>
+    <script src="@urlStatic/assets/vendors/fontawesome/all.min.js"></script>
+    <script src="@urlStatic/assets/vendors/lodash/lodash.min.js"></script>
+    <script src="@urlStatic/assets/vendors/feather-icons/feather.min.js"></script>
+    <script src="@urlStatic/assets/vendors/dayjs/dayjs.min.js"></script>
+    <script src="@urlStatic/assets/vendors/leaflet/leaflet.js"></script>
+    <script src="@urlStatic/assets/vendors/leaflet.markercluster/leaflet.markercluster.js"></script>
+    <script src="@urlStatic/assets/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js"></script>
+    <script src="@urlStatic/assets/js/phoenix.js"></script>
+    <script src="@urlStatic/assets/vendors/echarts/echarts.min.js"></script>
+    <script src="@urlStatic/assets/js/ecommerce-dashboard.js"></script>
+
+
+    <script>
+        // Danh sách các thư viện cần tải theo thứ tự
+        const scriptFiles = [
+            "@urlStatic/assets/js/config.js?v=1.0.0",
+
+            "@urlStatic/assets/vendors/popper/popper.min.js?v=1.0.0",
+            "@urlStatic/assets/vendors/anchorjs/anchor.min.js?v=1.0.0",
+            "@urlStatic/assets/vendors/is/is.min.js?v=1.0.0",
+            "@urlStatic/assets/vendors/fontawesome/all.min.js?v=1.0.0",
+            "@urlStatic/assets/vendors/lodash/lodash.min.js?v=1.0.0",
+            //"@urlStatic/assets/vendors/list.js/list.min.js?v=1.0.0",
+            
+            "@urlStatic/assets/vendors/dayjs/dayjs.min.js?v=1.0.0",
+            "@urlStatic/assets/vendors/leaflet/leaflet.js?v=1.0.0",
+            "@urlStatic/assets/vendors/leaflet.markercluster/leaflet.markercluster.js?v=1.0.0",
+            "@urlStatic/assets/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js?v=1.0.0",
+            "@urlStatic/assets/js/phoenix.js?v=1.0.0",
+            "@urlStatic/assets/vendors/echarts/echarts.min.js?v=1.0.0",
+            "@urlStatic/assets/js/ecommerce-dashboard.js?v=1.0.0",
+            "@urlStatic/assets/jstree/tree.min.js?v=1.0.0",
+            "@urlStatic/assets/sweetalert/sweetalert.min.js?v=1.0.0",
+            "@urlStatic/assets/vendors/feather-icons/feather.min.js?v=1.0.0",
+            "@urlStatic/assets/jexcel/jsuites.js?v=1.0.0",
+            "@urlStatic/assets/jexcel/jspreadsheet.js?v=1.0.0",
+            "@urlStatic/assets/js_treetable/js/jquery.treegrid.min.js?v=1.0.0",
+            "/views/Home/controller.js" // Cuối cùng là controller.js
+        ];
+
+        // Hàm tải script tuần tự
+        function loadScriptsSequentially(files, index = 0) {
+            if (index >= files.length) {
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = files[index];
+            script.onload = function () {
+                loadScriptsSequentially(files, index + 1);
+            };
+            script.onerror = function () {
+                console.error(`Lỗi khi tải script: ${files[index]}`);
+            };
+            document.head.appendChild(script);
+        }
+        // Bắt đầu tải các script
+        loadScriptsSequentially(scriptFiles);
+
+
+        function showAlert(type, message) {
+            // Tạo một phần tử div để chứa alert
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-subtle-${type} alert-dismissible fade show`;
+            alertDiv.role = 'alert';
+            alertDiv.innerHTML = `
+                ${message}
+                <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+            `;
+
+            // Thêm alert vào container cụ thể
+            const alertContainer = document.querySelector('#alert-container') || document.body;
+            alertContainer.appendChild(alertDiv);
+
+            // Tự động ẩn alert sau 4 giây
+            setTimeout(() => {
+                alertDiv.classList.remove('show'); // Ẩn alert bằng Bootstrap
+                setTimeout(() => {
+                    alertDiv.remove(); // Loại bỏ alert khỏi DOM
+                }, 150); // Chờ hiệu ứng fade-out hoàn tất (Bootstrap transition ~150ms)
+            }, 4000);
+        }
+
+
+        (function () {
+            let idleTime = 0; // Thời gian không hoạt động (tính bằng phút)
+            const maxIdleTime = 60; // Giới hạn không hoạt động là 60 phút
+
+            // Làm mới token
+            async function refreshToken() {
+                const response = await fetch('/Login/RefreshToken', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include', // Gửi cookie trong request
+                    body: JSON.stringify({
+                        Token: getCookie('JwtToken'),
+                        RefreshToken: getCookie('RefreshToken'),
+                    }),
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    console.log('Token refreshed successfully:', data);
+                } else {
+                    console.error('Failed to refresh token:', data);
+                    // Nếu làm mới token thất bại, chuyển hướng đến login
+                    window.location.href = '/Login';
+                }
+            }
+
+            // Lấy cookie
+            function getCookie(name) {
+                const cookies = document.cookie.split(';');
+                for (let cookie of cookies) {
+                    const [key, value] = cookie.trim().split('=');
+                    if (key === name) return value;
+                }
+                return null;
+            }
+
+            // Đặt lại thời gian không hoạt động khi có tương tác
+            function resetIdleTime() {
+                idleTime = 0;
+            }
+
+            // Tăng thời gian không hoạt động mỗi phút
+            function trackIdleTime() {
+                idleTime++;
+                if (idleTime >= maxIdleTime) {
+                    console.log('User is idle for 15 minutes. Redirecting to login...');
+                    window.location.href = '/Login';
+                }
+            }
+
+            // Lắng nghe các sự kiện để đặt lại idleTime
+            window.onload = function () {
+                document.addEventListener('mousemove', resetIdleTime);
+                document.addEventListener('keydown', resetIdleTime);
+                document.addEventListener('scroll', resetIdleTime);
+                document.addEventListener('click', resetIdleTime);
+
+                // Kiểm tra thời gian không hoạt động mỗi phút
+                setInterval(trackIdleTime, 60 * 1000);
+
+                // Làm mới token mỗi 55 phút nếu người dùng đang hoạt động
+                setInterval(() => {
+                    if (idleTime < maxIdleTime) {
+                        refreshToken();
+                    }
+                }, 55 * 60 * 1000);
+            };
+        })();
+
+        let loadingProgress = 0;
+        let loadingInterval;
+
+        // Hàm hiển thị thanh loading
+        function showLoading() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.classList.add('active');
+            loadingProgress = 0;
+            updateLoadingBar();
+
+            loadingInterval = setInterval(() => {
+                if (loadingProgress < 90) {
+                    loadingProgress += 1;
+                    updateLoadingBar();
+                }
+            }, 100);
+        }
+
+        // Hàm ẩn loading
+        function hideLoading() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            clearInterval(loadingInterval);
+            loadingProgress = 100;
+            updateLoadingBar();
+
+            setTimeout(() => {
+                loadingOverlay.classList.remove('active');
+            }, 500);
+        }
+
+        // Hàm cập nhật thanh tiến trình
+        function updateLoadingBar() {
+            const loadingBar = document.getElementById('loadingBar');
+            const loadingText = document.getElementById('loadingText');
+            if (loadingBar && loadingText) {
+                loadingBar.style.width = loadingProgress + '%';
+                loadingText.textContent = `Đang xử lý... ${loadingProgress}%`;
+            }
+        }
+    </script>
+    
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

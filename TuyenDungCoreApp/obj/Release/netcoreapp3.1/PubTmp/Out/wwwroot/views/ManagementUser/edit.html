@@ -1,0 +1,77 @@
+﻿<style>
+    .custom-modal-size .modal-dialog {
+        max-width: 60%; /* Chiều rộng tối đa */
+        width: auto; /* Chiều rộng tự động dựa trên nội dung */
+    }
+
+    .custom-modal-size .modal-content {
+        height: 80vh; /* Chiều cao tối đa là 80% viewport */
+        overflow-y: auto; /* Bật cuộn nếu nội dung vượt quá */
+    }
+</style>
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4">{{title}}</h4>
+    <form name="editform" class="form-horizontal form-bordered" method="post" ng-validate="validationOptions" ng-submit="submit($event)">
+        <div class="row">
+            <input type="text" class="form-control" ng-model="model.Id" placeholder="" aria-describedby="defaultFormControlHelp" ng-hide="true" />
+            <div class="col-md-3">
+                <label for="defaultFormControlInput" class="form-label">User Name</label>
+                <input type="text" class="form-control" ng-model="model.UserName" placeholder="" aria-describedby="defaultFormControlHelp" />
+            </div>
+            <div class="col-md-3">
+                <label for="defaultFormControlInput" class="form-label">FullName</label>
+                <input type="text" class="form-control" ng-model="model.FullName" placeholder="" aria-describedby="defaultFormControlHelp" />
+            </div>
+            <div class="col-md-3">
+                <label for="defaultFormControlInput" class="form-label">Department</label>
+                <select class="form-select" ng-model="model.Department_id" ng-change="onDepartmentChange()" aria-label="Default select example">
+                    <option ng-repeat="department in ListDepartment" value="{{department.Id}}">
+                        {{department.DepartmentName}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="defaultFormControlInput" class="form-label">JobTitle</label>
+                <select class="form-select" ng-model="model.JobTitle_id" ng-change="onJobTitleChange()" aria-label="Default select example">
+                    <option ng-repeat="job in ListJobTitle" value="{{job.Id}}">
+                        {{job.JobTitle_name}}
+                    </option>
+                </select>
+            </div>
+
+
+
+            <div class="col-md-3">
+                <label for="defaultFormControlInput" class="form-label">Email</label>
+                <input type="email" class="form-control" ng-model="model.Email" placeholder="" aria-describedby="defaultFormControlHelp" />
+            </div>
+            <div class="col-md-3">
+                <label for="defaultFormControlInput" class="form-label">Phone</label>
+                <input type="text" class="form-control" ng-model="model.Phone" placeholder="" aria-describedby="defaultFormControlHelp" />
+            </div>
+            <div class="col-md-3">
+                <label for="defaultFormControlInput" class="form-label">Avatar</label>
+                <img ng-if="model.Img" ng-src="{{model.Img}}" alt="Avatar" style="width: 100px; height: 100px; margin-bottom: 10px;" />
+                <input class="form-control"
+                       type="file"
+                       multiple
+                       file-input="model.Avatar"
+                       on-file-change="handleFiles(files)" />
+            </div>
+            <div class="col-md-3">
+                <label for="defaultFormControlInput" class="form-label">IsActive</label>
+                <select class="form-select" ng-model="model.IsActive" aria-label="Default select example">
+                    <option value="1">activate</option>
+                    <option value="0">not activated</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" ng-click="submit()">Save</button>
+            <button type="button" class="btn btn-outline-secondary" ng-click="cancel()">Close</button>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,181 @@
+﻿
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden; /* Ẩn thanh cuộn nếu không cần thiết */
+    }
+
+    .page-wrapper {
+        height: 100vh; /* Chiều cao vừa khớp với kích thước màn hình */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .table-bordered-custom {
+        border: 1px solid #ddd; /* Màu xám nhạt */
+        border-collapse: collapse; /* Gộp đường viền giữa các ô */
+    }
+
+    .table-bordered-custom th,
+    .table-bordered-custom td {
+        border: 1px solid #ddd; /* Màu viền ô nhạt */
+    }
+
+    .table-bordered-custom th {
+        background-color: #f8f9fa; /* Màu nền nhạt cho tiêu đề */
+        font-weight: bold; /* In đậm tiêu đề */
+        text-align: center; /* Căn giữa nội dung trong tiêu đề */
+    }
+
+    .table-bordered-custom tr:nth-child(even) {
+        background-color: #f9f9f9; /* Tô nền nhạt cho hàng chẵn */
+    }
+
+    .table-bordered-custom tr:hover {
+        background-color: #eef; /* Màu nền khi hover */
+    }
+
+    .table-bordered-custom th {
+        text-align: center !important; /* Căn giữa nội dung */
+        vertical-align: middle !important; /* Căn giữa theo chiều dọc */
+    }
+
+    .treejs {
+        margin-left: -7% !important;
+    }
+</style>
+
+<div class="mb-12" data-collapse-filemanager-sidebar="data-collapse-filemanager-sidebar" ng-if="hasPermission('View')">
+    <div class="row">
+        <div class="col-2 file-manager-sidebar" style="padding: 25px 0px !important; ">
+            <div class="phoenix-offcanvas phoenix-offcanvas-fixed scrollbar overflow-x-hidden" 
+                 style="background-color: #ffffff !important; border-radius: 8px !important;"
+                 id="div_tree" ng-init="initTree()" data-breakpoint="lg">
+                <div class="d-flex flex-between-center">
+                    <button class="btn p-0 fs-8 d-lg-none" data-phoenix-dismiss="offcanvas">
+                        <span class="fa-solid fa-xmark" data-fa-transform="up-3"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="phoenix-offcanvas-backdrop d-lg-none" data-phoenix-backdrop="data-phoenix-backdrop"></div>
+        </div>
+        <div class="col-10 my-files">
+            <div class="row g-3 flex-between-center">
+                <div class="col-auto d-flex gap-2">
+                    <button class="btn btn-phoenix-secondary btn-square d-lg-none" data-phoenix-toggle="offcanvas" data-phoenix-target="#div_tree">
+                        <span class="fa-solid fa-bars"></span>
+                    </button>
+                    <button class="btn btn-phoenix-secondary btn-square d-none d-lg-block d-xl-none" data-toggle-sidebar="data-toggle-sidebar">
+                        <span class="fa-solid fa-bars"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-body pb-5">
+                    <div id="tableExample3" data-list='{"valueNames":["user_no","username","FullName", "DepartmentName", "JobTitleName", "IsActive"]}'>
+                        <div class="d-flex align-items-center">
+
+                            <div class="col-auto d-flex gap-2">
+                                <div class="search-box ms-xl-0 w-auto">
+                                    <form class="position-relative">
+                                        <input class="form-control search-input search" type="search" ng-model="staticParam.Search" ng-change="reload()" ng-keypress="onEnterPress($event)" placeholder="Search....." aria-label="Search" />
+                                        <span class="fas fa-search search-box-icon"></span>
+                                    </form>
+                                </div>
+                                <select class="form-select w-auto" ng-model="staticParam.IsActive" ng-change="ReloadData()">
+                                    <option value="1">Kích hoạt</option>>
+                                    <option value="0">Không kích hoạt</option>
+                                </select>
+                                <button class="btn btn-phoenix-primary btn-square" type="button" ng-click="addModal()" ng-if="hasPermission('Insert')">
+                                    <span class="nav-link-icon">
+                                        <span data-feather="user-plus"></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm table-bordered-custom fs-9 mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="sort border-top border-translucent ps-3">Avatar</th>
+                                        <th class="sort border-top border-translucent ps-3" data-sort="user_no">Mã nhân viên</th>
+                                        <th class="sort border-top border-translucent ps-3" data-sort="username">User Login</th>
+                                        <th class="sort border-top" data-sort="FullName">Họ tên</th>
+                                        <th class="sort border-top" data-sort="DepartmentName">Phòng ban</th>
+                                        <th class="sort border-top" data-sort="JobTitleName">Chức danh</th>
+                                        <th class="sort border-top" data-sort="IsActive">Trạng thái</th>
+                                        <th style="width:60px !important" class="sort text-end align-middle pe-0 border-top" scope="col">Điều khiến</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+                                    <tr ng-repeat="item in List_ManagementUser track by item.Id">
+                                        <td class="align-middle ps-3">
+                                            <img ng-src="{{item.Avatar}}" alt="Avatar" class="img-thumbnail" style="width: 50px; height: 50px;">
+                                        </td>
+                                        <td class="align-middle ps-3 user_no">{{ item.user_no }}</td>
+                                        <td class="align-middle ps-3 username">{{ item.UserName }}</td>
+                                        <td class="align-middle FullName">{{ item.FullName }}</td>
+                                        <td class="align-middle DepartmentName">{{ item.DepartmentName }}</td>
+                                        <td class="align-middle JobTitleName">{{ item.JobTitleName }}</td>
+                                        <td class="align-middle IsActive">{{ item.IsActive == 1 ? "Kích hoạt" : "Không kích hoạt" }}</td>
+                                        <td class="align-middle white-space-nowrap text-end pe-0">
+                                            <div class="btn-reveal-trigger position-static" style="text-align: center !important;">
+                                                <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs-10"
+                                                        type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false"
+                                                        data-bs-reference="parent" style="background-color: #8ac4ff !important;">
+                                                    <span class="fas fa-ellipsis-h fs-10"></span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-end py-2">
+                                                    <button class="dropdown-item" ng-click="openModal(item.Id)" ng-if="hasPermission('View')">
+                                                        Xem
+                                                    </button>
+                                                    <button class="dropdown-item" ng-click="editModal(item.Id)" ng-if="hasPermission('Edit')">
+                                                        Cập nhật
+                                                    </button>
+                                                    <button class="dropdown-item" ng-click="delete({ id: item.Id, title: item.UserName })" ng-if="hasPermission('Delete') && staticParam.IsActive == 1">
+                                                        Xóa
+                                                    </button>
+                                                    <button class="dropdown-item" ng-click="restore({ id: item.Id, title: item.UserName })" ng-if="hasPermission('Delete') && staticParam.IsActive == 0">
+                                                        Khôi phục
+                                                    </button>
+                                                    <button class="dropdown-item" ng-click="addpermission({ id: item.Id, title: item.UserName })" ng-if="hasPermission('View')">
+                                                        Phân quyền
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="p-4 code-to-copy">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item" ng-class="{ 'disabled': pageIndex === 1 }">
+                                    <a href="javascript:void(0);" class="page-link" tabindex="-1" aria-disabled="{{pageIndex === 1}}" ng-click="previousPage()" ng-disabled="pageIndex === 1">
+                                        Previous
+                                    </a>
+                                </li>
+                                <li class="page-item" ng-repeat="page in [].constructor(totalPages) track by $index" ng-class="{ 'active': $index + 1 === pageIndex }">
+                                    <a href="javascript:void(0);" class="page-link" ng-click="goToPage($index + 1)">{{$index + 1}}</a>
+                                </li>
+                                <li class="page-item" ng-class="{ 'disabled': pageIndex === totalPages }">
+                                    <a href="javascript:void(0);" class="page-link" ng-click="nextPage()" ng-disabled="pageIndex === totalPages">
+                                        Next
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
