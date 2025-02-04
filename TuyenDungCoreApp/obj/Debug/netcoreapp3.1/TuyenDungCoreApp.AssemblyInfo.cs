@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TuyenDungCoreApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bbeae8acc1ea67f89dbf7c34df1b2c88937592c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("TuyenDungCoreApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TuyenDungCoreApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

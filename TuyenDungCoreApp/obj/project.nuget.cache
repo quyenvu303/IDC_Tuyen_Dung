@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pld8bi10mw4=",
+  "dgSpecHash": "3MGyNVWShME=",
   "success": true,
-  "projectFilePath": "D:\\IDC\\TuyenDungIDC\\TuyenDungCoreApp\\TuyenDungCoreApp.csproj",
+  "projectFilePath": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungCoreApp\\TuyenDungCoreApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nkocp\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\nkocp\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

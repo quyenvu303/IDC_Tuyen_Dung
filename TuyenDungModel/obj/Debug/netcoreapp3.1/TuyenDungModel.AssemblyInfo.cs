@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TuyenDungModel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+080d841bf4a70f999e19c639e37859a01f461794")]
 [assembly: System.Reflection.AssemblyProductAttribute("TuyenDungModel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TuyenDungModel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

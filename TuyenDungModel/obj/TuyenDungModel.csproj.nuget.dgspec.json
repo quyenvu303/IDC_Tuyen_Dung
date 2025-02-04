@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\TuyenDungModel.csproj": {}
+    "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\TuyenDungModel.csproj": {}
   },
   "projects": {
-    "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\TuyenDungModel.csproj": {
+    "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\TuyenDungModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\TuyenDungModel.csproj",
+        "projectUniqueName": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\TuyenDungModel.csproj",
         "projectName": "TuyenDungModel",
-        "projectPath": "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\TuyenDungModel.csproj",
+        "projectPath": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\TuyenDungModel.csproj",
         "packagesPath": "C:\\Users\\nkocp\\.nuget\\packages\\",
-        "outputPath": "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\obj\\",
+        "outputPath": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nkocp\\AppData\\Roaming\\NuGet\\NuGet.Config",

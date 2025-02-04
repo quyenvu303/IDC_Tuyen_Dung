@@ -6283,11 +6283,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\IDC\\TuyenDungIDC\\TuyenDungWebsite\\TuyenDungWebsite.csproj",
+      "projectUniqueName": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungWebsite\\TuyenDungWebsite.csproj",
       "projectName": "TuyenDungWebsite",
-      "projectPath": "D:\\IDC\\TuyenDungIDC\\TuyenDungWebsite\\TuyenDungWebsite.csproj",
+      "projectPath": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungWebsite\\TuyenDungWebsite.csproj",
       "packagesPath": "C:\\Users\\nkocp\\.nuget\\packages\\",
-      "outputPath": "D:\\IDC\\TuyenDungIDC\\TuyenDungWebsite\\obj\\",
+      "outputPath": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungWebsite\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nkocp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6305,8 +6305,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\TuyenDungModel.csproj": {
-              "projectPath": "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\TuyenDungModel.csproj"
+            "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\TuyenDungModel.csproj": {
+              "projectPath": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\TuyenDungModel.csproj"
             }
           }
         }

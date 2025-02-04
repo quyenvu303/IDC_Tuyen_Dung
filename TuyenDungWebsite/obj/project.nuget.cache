@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rBTcxWygTk0=",
+  "dgSpecHash": "moon1bazAL0=",
   "success": true,
-  "projectFilePath": "D:\\IDC\\TuyenDungIDC\\TuyenDungWebsite\\TuyenDungWebsite.csproj",
+  "projectFilePath": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungWebsite\\TuyenDungWebsite.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nkocp\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\nkocp\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

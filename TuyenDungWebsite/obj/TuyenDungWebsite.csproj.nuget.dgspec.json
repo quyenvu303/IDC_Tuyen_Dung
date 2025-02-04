@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\IDC\\TuyenDungIDC\\TuyenDungWebsite\\TuyenDungWebsite.csproj": {}
+    "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungWebsite\\TuyenDungWebsite.csproj": {}
   },
   "projects": {
-    "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\TuyenDungModel.csproj": {
+    "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\TuyenDungModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\TuyenDungModel.csproj",
+        "projectUniqueName": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\TuyenDungModel.csproj",
         "projectName": "TuyenDungModel",
-        "projectPath": "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\TuyenDungModel.csproj",
+        "projectPath": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\TuyenDungModel.csproj",
         "packagesPath": "C:\\Users\\nkocp\\.nuget\\packages\\",
-        "outputPath": "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\obj\\",
+        "outputPath": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nkocp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -71,14 +71,14 @@
         }
       }
     },
-    "D:\\IDC\\TuyenDungIDC\\TuyenDungWebsite\\TuyenDungWebsite.csproj": {
+    "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungWebsite\\TuyenDungWebsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\IDC\\TuyenDungIDC\\TuyenDungWebsite\\TuyenDungWebsite.csproj",
+        "projectUniqueName": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungWebsite\\TuyenDungWebsite.csproj",
         "projectName": "TuyenDungWebsite",
-        "projectPath": "D:\\IDC\\TuyenDungIDC\\TuyenDungWebsite\\TuyenDungWebsite.csproj",
+        "projectPath": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungWebsite\\TuyenDungWebsite.csproj",
         "packagesPath": "C:\\Users\\nkocp\\.nuget\\packages\\",
-        "outputPath": "D:\\IDC\\TuyenDungIDC\\TuyenDungWebsite\\obj\\",
+        "outputPath": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungWebsite\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nkocp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -96,8 +96,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\TuyenDungModel.csproj": {
-                "projectPath": "D:\\IDC\\TuyenDungIDC\\TuyenDungModel\\TuyenDungModel.csproj"
+              "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\TuyenDungModel.csproj": {
+                "projectPath": "D:\\Git\\IDC_Tuyen_Dung\\TuyenDungModel\\TuyenDungModel.csproj"
               }
             }
           }
